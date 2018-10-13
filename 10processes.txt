@@ -1,0 +1,260 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<sys/wait.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+int main()
+{
+	int fd1[2];
+		int fd2[2];
+		int fd3[2];
+		int fd4[2];
+		int fd5[2];
+		int fd6[2];
+		int fd7[2];
+		int fd8[2];
+		int fd8[2];
+	    int fd9[2];
+		int fd10[2];
+		
+		
+		//10 pipes 
+		
+		pipe(fd1);
+		pipe(fd2);
+		pipe(fd3);
+		pipe(fd4);
+		pipe(fd5);
+		pipe(fd6);
+		pipe(fd6);
+		pipe(fd7);
+		pipe(fd8);
+		pipe(fd9);
+		pipe(fd10);
+		
+		
+		
+		int s=1000;
+		
+		int a[s];
+		
+	for(int i=0;i<size;i++)
+		{
+			a[i]=i+1;
+		}
+		int cpid=fork();
+		int sum=0;
+		if(cpid==0)
+		{	
+		int start=0;
+		int end=100;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+	write(fd1[1],&sum,sizeof(sum));
+	printf("sum from 1st pipe is=%d\n",sum);
+}
+else
+{
+	int cpid1=fork();
+	if(cpid1==0)
+	{
+		int start=100;
+		int end=200;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd2[1],&sum,sizeof(sum));
+	printf("sum from 2nd pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid2=fork();
+	if(cpid2==0)
+	{
+		int start=200;
+		int end=300;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd3[1],&sum,sizeof(sum));
+	printf("sum from 3rd pipe is=%d\n",sum);
+		
+	}
+		
+else
+{
+	int cpid3=fork();
+	if(cpid3==0)
+	{
+		int start=300;
+		int end=400;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd4[1],&sum,sizeof(sum));
+	printf("sum from 4th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid4=fork();
+	if(cpid4==0)
+	{
+		int start=400;
+		int end=500;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd5[1],&sum,sizeof(sum));
+	printf("sum from 5th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid5=fork();
+	if(cpid5==0)
+	{
+		int start=500;
+		int end=600;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd6[1],&sum,sizeof(sum));
+	printf("sum from 6th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid6=fork();
+	if(cpid6==0)
+	{
+		int start=600;
+		int end=700;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd7[1],&sum,sizeof(sum));
+	printf("sum from 7th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid7=fork();
+	if(cpid7==0)
+	{
+		int start=700;
+		int end=800;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd8[1],&sum,sizeof(sum));
+	printf("sum from 8th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid8=fork();
+	if(cpid8==0)
+	{
+		int start=800;
+		int end=900;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd9[1],&sum,sizeof(sum));
+	printf("sum from 9th pipe is=%d\n",sum);
+		
+	}
+
+else
+{
+	int cpid9=fork();
+	if(cpid9==0)
+	{
+		int start=900;
+		int end=1000;
+		for(;start<end;start++)	
+	{
+	sum=sum+a[start];
+		
+	}
+		write(fd10[1],&sum,sizeof(sum));
+	printf("sum from 10th pipe is=%d\n",sum);
+		
+	}
+else
+{
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+wait(NULL);
+
+int sum,sum_1,sum_2,ssum_3,sum_4,sum_5,sum_6,sum_7,sum_8,sum_9;
+// now reading values from 10 pipes
+read(fd1[0],&sum,sizeof(sum));
+read(fd2[0],&sum_1,sizeof(sum_1));
+read(fd3[0],&sum_2,sizeof(sum_2));
+read(fd4[0],&sum_3,sizeof(sum_3));
+read(fd5[0],&sum_4,sizeof(sum_4));
+read(fd6[0],&sum_5,sizeof(sum_5));
+read(fd7[0],&sum_6,sizeof(sum_6));
+read(fd8[0],&sum_7,sizeof(sum_7));
+read(fd9[0],&sum_8,sizeof(sum_8));
+read(fd10[0],&sum_9,sizeof(sum_9));
+
+//total_size variable will add the sums of 10 pipes
+
+int total_sum=0;
+
+
+total_sum=sum+sum_1+sum_2+sum_3+sum_4+sum_5+sum_6+sum_7+sum_8+sum_9;
+printf("total_sum is=%d\n",total_sum);
+
+
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+															
+}
